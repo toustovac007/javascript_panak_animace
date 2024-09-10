@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>efekt</title>
+</head>
+<body>
+    <canvas id="efekt" width="800" height="800" style="border:1px solid #000000;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("efekt");
+        const ctx = canvas.getContext("2d");
+
+        let puvodniVyska = 400
+        let polohaCentraX = 50;  
+        let polohaCentraY = puvodniVyska ; 
+        let krok = 0;
+        let rychlost = 14; 
+        let polohaNohX = polohaCentraX; 
+         
+        
+        async function nakresliCloveka() {
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.strokeStyle = "black";
+
+            ctx.beginPath();
+            ctx.arc(polohaCentraX, polohaCentraY - 20, 20, 0, 2 * Math.PI);
+            ctx.stroke();
+            
+            ctx.moveTo(polohaCentraX, polohaCentraY);
+            ctx.lineTo(polohaCentraX, polohaCentraY + 70);
+            ctx.stroke(); 
+
+            switch(krok){
+
+                case 0:
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX + 20, polohaCentraY + 120);
+
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX - 20, polohaCentraY + 120);
+            
+            ctx.moveTo(polohaCentraX + 20, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 10, polohaCentraY + 170);
+
+            ctx.moveTo(polohaCentraX - 20, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX - 40, polohaCentraY + 170);
+
+            ctx.stroke(); 
+
+            break;
+
+
+
+
+                case 1:
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX + 10, polohaCentraY + 120);
+
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX - 10, polohaCentraY + 120);
+            
+            ctx.moveTo(polohaCentraX + 10, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 10, polohaCentraY + 170);
+
+            ctx.moveTo(polohaCentraX - 10, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX - 30, polohaCentraY + 160);
+
+            ctx.stroke(); 
+
+            break;
+
+
+
+
+                case 2:
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX + 1, polohaCentraY + 120);
+
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX - 1, polohaCentraY + 120);
+            
+            ctx.moveTo(polohaCentraX + 1, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 10, polohaCentraY + 170);
+
+            ctx.moveTo(polohaCentraX - 1, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX - 20, polohaCentraY + 150);
+
+            ctx.stroke(); 
+
+            break;
+
+
+/*
+
+
+                case 3:
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX + 10, polohaCentraY + 120);
+
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX - 10, polohaCentraY + 120);
+            
+            ctx.moveTo(polohaCentraX + 10, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 10, polohaCentraY + 170);
+
+            ctx.moveTo(polohaCentraX - 10, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX - 60, polohaCentraY + 170);
+
+            ctx.stroke(); 
+
+            break;
+
+
+
+                case 4:
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX + 1, polohaCentraY + 120);
+
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX - 1, polohaCentraY + 120);
+            
+            ctx.moveTo(polohaCentraX + 1, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 10, polohaCentraY + 170);
+
+            ctx.moveTo(polohaCentraX - 1, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX - 60, polohaCentraY + 170);
+
+            ctx.stroke(); 
+
+            break; */
+
+
+
+                case 3:
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX - 10, polohaCentraY + 120);
+
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX + 10, polohaCentraY + 120);
+            
+            ctx.moveTo(polohaCentraX - 10, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 10, polohaCentraY + 170);
+
+            ctx.moveTo(polohaCentraX + 10, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX - 5, polohaCentraY + 135);
+
+            ctx.stroke(); 
+
+            break;
+
+
+
+            case 4:
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX - 20, polohaCentraY + 120);
+
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX + 20, polohaCentraY + 120);
+            
+            ctx.moveTo(polohaCentraX - 20, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 10, polohaCentraY + 170);
+
+            ctx.moveTo(polohaCentraX + 20, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 20, polohaCentraY + 150);
+
+            ctx.stroke(); 
+
+            break;
+
+
+
+            case 5:
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX - 10, polohaCentraY + 120);
+
+            ctx.moveTo(polohaCentraX, polohaCentraY + 70);
+            ctx.lineTo(polohaCentraX + 30, polohaCentraY + 120);
+            
+            ctx.moveTo(polohaCentraX - 10, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 20, polohaCentraY + 155);
+
+            ctx.moveTo(polohaCentraX + 30, polohaCentraY + 120);
+            ctx.lineTo(polohaNohX + 45, polohaCentraY + 170);
+
+            ctx.stroke(); 
+
+            break;
+
+
+
+
+
+
+
+
+            }
+
+            polohaCentraX += rychlost;
+
+            if(krok < 2) {
+               polohaCentraY -= rychlost/2; 
+            }
+
+            else{
+                polohaCentraY += rychlost/2; 
+            }
+            
+            if(krok<5){ 
+                krok ++;
+            }
+            else{
+                krok = 0;
+                polohaNohX = polohaCentraX;
+                polohaCentraY = puvodniVyska;
+            }
+
+            if (polohaCentraX > canvas.width || polohaCentraX < 0) {
+                polohaCentraX = 50;  
+
+            ctx.moveTo(650, 250);
+            ctx.lineTo(400, 250);
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+            ctx.moveTo(400, 250);
+            ctx.lineTo(525, 150);
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+            ctx.moveTo(525, 150);
+            ctx.lineTo(650, 250);
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+
+
+            
+            ctx.moveTo(650, 175);
+            ctx.lineTo(400, 175);
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+            ctx.moveTo(400, 175);
+            ctx.lineTo(525, 275);
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+            ctx.moveTo(525, 275);
+            ctx.lineTo(650, 175);
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+
+            }
+
+
+           // await cekat(1000);
+
+            requestAnimationFrame(nakresliCloveka);
+            }
+
+        nakresliCloveka();
+
+        function cekat(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+
+
+
+
+
+/* Parametry čtverce
+let squareX = 50;  // počáteční pozice X
+let squareY = 50;  // počáteční pozice Y
+let squareSize = 50;  // velikost čtverce
+let speedX = 2;  // rychlost pohybu ve směru X
+let speedY = 2;  // rychlost pohybu ve směru Y
+
+// Funkce na vykreslení čtverce
+function drawSquare() {
+    // Vymažeme plátno před každým snímkem
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Nakreslíme čtverec
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(squareX, squareY, squareSize, squareSize);
+
+    // Aktualizace pozice čtverce
+    squareX += speedX;
+    squareY += speedY;
+
+    // Kontrola hran plátna, aby se čtverec odrazil zpět
+    if (squareX + squareSize > canvas.width || squareX < 0) {
+        speedX = -speedX;
+    }
+    if (squareY + squareSize > canvas.height || squareY < 0) {
+        speedY = -speedY;
+    }
+
+    // Požádání o vykreslení dalšího snímku
+    requestAnimationFrame(drawSquare);
+}
+
+// Spustíme animaci
+drawSquare(); */
+
+
+
+
+
+
+
+
+
+
+
+        /*ctx.fillStyle = "red";
+        ctx.fillRect(300, 300, 200, 200);
+
+        ctx.moveTo(0, 0);
+        ctx.lineTo(200, 100);
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "blue";
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+
+        
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "green";
+        ctx.stroke();*/
+
+
+        </script>
+
+    
+</body>
+</html>
